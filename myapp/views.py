@@ -9,6 +9,10 @@ from transformers import NllbTokenizer, AutoModelForSeq2SeqLM
 
 models = "models/"
 
+def get_details(request):
+    if request.method == "GET":
+        return JsonResponse({"Hola": "Api funcionando"})
+
 @lru_cache(maxsize=1)
 def load_from_s3(path, bucket_name='gaiacloud'):
     s3 = boto3.client('s3')
